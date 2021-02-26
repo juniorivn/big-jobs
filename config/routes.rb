@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :candidates, only: %i[index]
   resources :companies, only: %i[index show new create edit update]
-  resources :jobs, only: %i[index show new create edit update]
+  resources :jobs, only: %i[index show new create edit update] do
+    post 'application', on: :member
+  end
 
 end

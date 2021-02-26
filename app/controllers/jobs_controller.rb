@@ -35,6 +35,13 @@ class JobsController < ApplicationController
     end
   end
 
+  def application
+    job = Job.find(params[:id])
+    job.application_job(current_candidate.id, job.id)
+    redirect_to job
+
+  end
+
   private
 
   def job_params

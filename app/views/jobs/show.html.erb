@@ -10,5 +10,11 @@
   <dt> Data limite: <%= l(@job.deadline) %></dt>
   <dt> Total de posições: <%= @job.total %></dt>
 </dl>
-
-<%= link_to 'Editar vaga de emprego', edit_job_path %>
+<% if current_collaborator %> 
+  <%= link_to 'Editar vaga de emprego', edit_job_path %>
+<% end %>
+<% if current_candidate %>
+  <% if search_candidate_job?(current_candidate.id, @job.id) %>
+    <%= link_to 'Candidatar-se', application_job_path, method: :post %>
+  <% end %>
+<% end %>
