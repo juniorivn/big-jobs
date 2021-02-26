@@ -3,4 +3,10 @@ class Candidate < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # def validator_cpf
+  #   cpf = CPF.new(self.cpf)
+  #   cpf.valid?
+  # end|
+
 end

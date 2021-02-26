@@ -1,5 +1,7 @@
 <h3>Bem vindo ao Big Jobs</h3>
-
-<%= link_to 'Editar dados da empresa' %>
-<br>
 <%= link_to 'Vagas de emprego cadastradas', jobs_path %>
+
+<% if current_collaborator.admin? %>  
+  <br><br>
+  <%= link_to 'Editar dados da empresa' %>
+<% end %>

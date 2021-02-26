@@ -18,7 +18,7 @@ pt-BR:
           level: "Nível"
           requirements: "Requisitos"
           deadline: "Data limite"
-          total: "Total de vagas"
+          total: "Total de posições"
         collaborator:
           name: "Nome"
           cpf: "CPF"
