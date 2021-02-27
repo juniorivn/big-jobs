@@ -1,15 +1,20 @@
 class JobsController < ApplicationController
+
+  before_action :authenticate_collaborator!, only: [:new, :create, :edit]
+
+
   def index
     @jobs = Job.all
   end
 
   def new
     @job = Job.new
+   
   end
 
   def create
     @job = Job.new(job_params)
-
+   
     if @job.save
       redirect_to @job
     else

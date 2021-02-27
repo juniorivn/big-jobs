@@ -2,26 +2,35 @@ require 'rails_helper'
 
 feature 'Admin updates jobs' do
   scenario 'access page edit job' do
-    job = Job.create!(title: 'Título da vaga', description: 'Analista Ruby',
+    collaborator = Collaborator.create!(email: 'ivan@email.com', password: '123456', cpf: '26701421687',
+                                        name: 'Ivan de Oliveira Junior')
+    login_as collaborator, scope: :collaborator
+    job = Job.create!(title: 'Analista Ruby', description: ' Trabalhará com desenolvimento de projeto em Ruby',
                       salary: '2500', level: 'Junior',
                       requirements: 'Certificação em Ruby', 
                       deadline: '22/12/2033', total: '5')
     
     visit root_path
-    click_on "Empresa"
+    click_on "Acesso empresa"
+    click_on "Vagas de emprego cadastradas"
     click_on job.title
     expect(page).to have_link('Editar vaga de emprego')
 
   end
 
   scenario 'update a promotion' do
-    job = Job.create!(title: 'Título da vaga', description: 'Analista Ruby',
+    collaborator = Collaborator.create!(email: 'ivan@email.com', password: '123456', cpf: '26701421687',
+                                        name: 'Ivan de Oliveira Junior')
+    login_as collaborator, scope: :collaborator
+    job = Job.create!(title: 'Analista Ruby', description: ' Trabalhará com desenolvimento de projeto em Ruby',
                       salary: '2500', level: 'Junior',
                       requirements: 'Certificação em Ruby', 
                       deadline: '22/12/2033', total: '5')
+
     
     visit root_path
-    click_on "Empresa"
+    click_on "Acesso empresa"
+    click_on "Vagas de emprego cadastradas"
     click_on job.title
     click_on "Editar vaga de emprego"
 
@@ -31,7 +40,7 @@ feature 'Admin updates jobs' do
     select 'Pleno'
     fill_in 'Requisitos', with: 'Certificação em Java'
     fill_in 'Data limite', with: '22/12/2025'
-    fill_in 'Total de vagas', with: '3'
+    fill_in 'Total de posições', with: '3'
     click_on 'Atualizar Vaga de Emprego'
 
     expect(current_path).to eq(job_path(Job.last))

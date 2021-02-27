@@ -2,17 +2,24 @@ require 'rails_helper'
 
 feature 'Admin registers job vacancy' do
   scenario 'from index page' do
-    visit root_path
-    click_on 'Empresa'
+    collaborator = Collaborator.create!(email: 'ivan@email.com', password: '123456', cpf: '26701421687',
+                                        name: 'Ivan de Oliveira Junior')
+    login_as collaborator, scope: :collaborator
 
+    visit root_path
+    click_on 'Acesso empresa'
     expect(page).to have_link('Cadastrar uma vaga de emprego',
                               href: new_job_path)
     
   end
 
   scenario 'successfully' do
+    collaborator = Collaborator.create!(email: 'ivan@email.com', password: '123456', cpf: '26701421687',
+                                        name: 'Ivan de Oliveira Junior')
+    login_as collaborator, scope: :collaborator
+
     visit root_path
-    click_on 'Empresa'
+    click_on 'Acesso empresa'
     click_on 'Cadastrar uma vaga de emprego'
     
     fill_in 'Título da vaga', with: 'Analista Ruby'
@@ -21,7 +28,7 @@ feature 'Admin registers job vacancy' do
     select 'Junior'
     fill_in 'Requisitos', with: 'Certificação em Ruby'
     fill_in 'Data limite', with: '22/12/2033'
-    fill_in 'Total de vagas', with: '5'
+    fill_in 'Total de posições', with: '5'
     click_on 'Criar Vaga de Emprego'
 
     expect(current_path).to eq(job_path(Job.last))
