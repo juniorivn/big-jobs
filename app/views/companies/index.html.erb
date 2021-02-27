@@ -2,23 +2,8 @@
 
 <h4>Dados da empresa</h4>
 
-<% if current_collaborator.admin? %>  
-  <% @companies.each do |company| %>
-    <% if company.id == current_collaborator.company_id %>
-      <dt> <%= company.name %></dt>
-      <dt> <%= link_to company.domain, edit_company_path(id: company.id) %></dt><br>
-    <% end %>
-  <% end %>
-<% else %>
-    <% @companies.each do |company| %>
-      <% if company.id == current_collaborator.company_id %>
-        <dt> <%= company.name %></dt>
-        <dt> <%= company.domain %></dt><br>
-      <% end %>
-  <% end %>
+<% @companies.each do |company| %>
+  <dt> <%= company.name %></dt>
+  <dt> <%= company.domain %></dt>
+  <%=  link_to 'Visualizar vagas da empresa', jobs_path(company_id: company.id) %> <br><hr>
 <% end %>
-<hr>
-<br>
-<%= link_to 'Vagas de emprego cadastradas', jobs_path %>
-<br><br>
-<%= link_to 'Cadastrar uma vaga de emprego', new_job_path %>

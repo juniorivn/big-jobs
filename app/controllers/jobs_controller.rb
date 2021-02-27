@@ -1,10 +1,16 @@
 class JobsController < ApplicationController
-
+  
   before_action :authenticate_collaborator!, only: [:new, :create, :edit]
 
 
   def index
-    @jobs = Job.all
+    if collaborator_signed_in?
+      @jobs = Job.where(company_id: current_collaborator.company_id)
+    elsif params[:company_id].present?
+      @jobs = Job.where(company_id: params[:company_id])
+    else
+      @jobs = Job.all
+    end
   end
 
   def new
@@ -14,6 +20,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    @job.company_id = current_collaborator.company_id
    
     if @job.save
       redirect_to @job

@@ -13,12 +13,14 @@
       <dt>Título da vaga: <%= link_to job.title, job_path(id: job.id) %></dt>
       <dt>Descrição: <%= job.description %></dt>
       <dt>Faixa salarial: <%= number_to_currency job.salary %></dt>
+      <dt> Empresa: <%= job.company.name %></dt>
       <br>
       <hr>
     </dl>
   </div>
 <% end %>
 
-<h4>Para cadastrar numa nova vaga clique no link abaixo</h4>
-
-<%= link_to 'Cadastrar uma vaga de emprego', new_job_path %>
+<% if current_collaborator %>
+  <h4>Para cadastrar numa nova vaga clique no link abaixo</h4>
+  <%= link_to 'Cadastrar uma vaga de emprego', new_job_path %>
+<% end %>

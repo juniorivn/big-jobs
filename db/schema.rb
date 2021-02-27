@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_014514) do
+ActiveRecord::Schema.define(version: 2021_02_27_015613) do
 
   create_table "candidate_jobs", force: :cascade do |t|
     t.integer "status_candidate", default: 0, null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_014514) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.integer "cpf"
+    t.string "cpf"
     t.integer "cell_phone"
     t.text "short_biography"
     t.string "academic_training"
@@ -60,12 +60,12 @@ ActiveRecord::Schema.define(version: 2021_02_26_014514) do
     t.string "name"
     t.string "domain"
     t.string "logo"
-    t.integer "cnpj"
+    t.string "cnpj"
     t.string "address"
     t.string "district"
     t.string "city"
     t.string "state"
-    t.integer "zip_code"
+    t.string "zip_code"
     t.string "facebook"
     t.string "instagram"
     t.datetime "created_at", precision: 6, null: false
@@ -82,8 +82,11 @@ ActiveRecord::Schema.define(version: 2021_02_26_014514) do
     t.integer "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "company_id", null: false
+    t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
   add_foreign_key "candidate_jobs", "candidates"
   add_foreign_key "candidate_jobs", "jobs"
+  add_foreign_key "jobs", "companies"
 end

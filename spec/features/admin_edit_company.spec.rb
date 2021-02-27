@@ -16,8 +16,9 @@ feature 'Admin edit company' do
   scenario 'update a company' do
     collaborator = Collaborator.create!(email: 'ivan@sebastianainformaticaltda.com.br', password: '123456', 
                                         cpf: '26701421687', name: 'Ivan de Oliveira Junior')
-    login_as collaborator, scope: :collaborator
+                                        
     company =  Company.find_by(id: collaborator.company_id)
+    login_as collaborator, scope: :collaborator
     
     visit root_path
     click_on "Acesso empresa"
@@ -32,7 +33,7 @@ feature 'Admin edit company' do
     fill_in 'Estado', with: 'SP'
     fill_in 'CEP', with: '02364740'
     
-    click_on 'Atualizar empresa'
+    click_on 'Atualizar Empresa'
     
     expect(current_path).to eq(company_path(Company.last))
     expect(page).to have_content ('sebastianainformaticaltda.com.br')

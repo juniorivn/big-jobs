@@ -1,0 +1,12 @@
+<br>
+<% if current_collaborator.admin? %>  
+  <dt> <%= link_to @company.domain, edit_company_path(id: @company.id) %></dt>
+<% else %>
+  <dt> <%= @company.domain %></dt><br>
+<% end %>
+<dt> Nome: <%= @company.name %></dt><br>
+<hr>
+<br>
+<%= link_to 'Vagas de emprego cadastradas', jobs_path %>
+<br><br>
+<%= link_to 'Cadastrar uma vaga de emprego', new_job_path %>
