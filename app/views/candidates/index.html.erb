@@ -1,0 +1,15 @@
+<br>
+<%= link_to 'Voltar', root_path %>
+
+<h2>Dados do candidato</h2>
+<h3>Nome: <%= @candidate.name %></h3>
+<dl>
+  <dt> Email: <%= link_to @candidate.email%></dt>
+  <dt> Calular: <%= @candidate.cell_phone %></dt>
+  <dt> CPF: <%= @candidate.cpf %></dt>
+  <dt> Biografia resumida: <%= @candidate.short_biography %></dt>
+  <dt> Formação academica: <%= @candidate.academic_training %></dt>
+</dl>
+
+  
+  <%= link_to 'Editar perfil', edit_candidate_path(id: @candidate.id) %>

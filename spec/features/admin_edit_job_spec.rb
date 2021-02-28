@@ -8,7 +8,7 @@ feature 'Admin updates jobs' do
     job = Job.create!(title: 'Analista Ruby', description: ' Trabalhará com desenolvimento de projeto em Ruby',
                       salary: '2500', level: 'Junior',
                       requirements: 'Certificação em Ruby', 
-                      deadline: '22/12/2033', total: '5')
+                      deadline: '22/12/2033', total: '5', company_id: collaborator.company_id)
     
     visit root_path
     click_on "Acesso empresa"
@@ -25,7 +25,7 @@ feature 'Admin updates jobs' do
     job = Job.create!(title: 'Analista Ruby', description: ' Trabalhará com desenolvimento de projeto em Ruby',
                       salary: '2500', level: 'Junior',
                       requirements: 'Certificação em Ruby', 
-                      deadline: '22/12/2033', total: '5')
+                      deadline: '22/12/2033', total: '5', company_id: collaborator.company_id)
 
     
     visit root_path

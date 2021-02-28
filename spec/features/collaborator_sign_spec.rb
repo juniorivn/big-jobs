@@ -6,11 +6,11 @@ feature 'Collaborator sign in' do
                                         cpf:'37355900803', password: '123456')
 
     visit root_path
-    click_on 'Empresa'
+    click_on 'Acesso empresa'
     within('form') do 
       fill_in 'E-mail', with: collaborator.email
       fill_in 'Senha', with: '123456'
-      click_on 'Cadastrar'
+      click_on 'Entrar'
     end
 
     expect(page).to have_content collaborator.email
@@ -25,12 +25,12 @@ feature 'Collaborator sign in' do
                                         cpf:'37355900803', password: '123456')
     
     visit root_path
-    click_on 'Empresa'
+    click_on 'Acesso empresa'
     within('form') do
       fill_in 'E-mail', with: collaborator.email
       fill_in 'Senha', with: '123456'
       
-      click_on 'Cadastrar'
+      click_on 'Entrar'
     end
 
     click_on 'Sair'

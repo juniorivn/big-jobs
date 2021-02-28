@@ -6,8 +6,17 @@ describe Job do
       job = Job.new
 
       expect(job.valid?).to eq false
-      expect(job.errors.count).to eq 7
+      expect(job.errors.count).to eq 8
 
     end
+  end
+  describe 'validations' do
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:salary) }
+    it { should validate_presence_of(:level) }
+    it { should validate_presence_of(:deadline) }
+    it { should validate_presence_of(:total) }
+
   end
 end

@@ -12,7 +12,7 @@ feature 'Candidate sign in' do
       fill_in 'E-mail', with: candidate.email
       fill_in 'Senha', with: '123456'
 
-      click_on 'Log in'
+      click_on 'Entrar'
     end
 
     expect(page).to have_content candidate.email
@@ -33,7 +33,7 @@ feature 'Candidate sign in' do
       fill_in 'E-mail', with: candidate.email
       fill_in 'Senha', with: '123456'
       
-      click_on 'Log in'
+      click_on 'Entrar'
     end
 
     click_on 'Sair'

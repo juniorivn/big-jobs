@@ -1,6 +1,15 @@
 <br>
+<h4>Dados do colaborador</h4>
+<dt>Nome: <%= @collaborator.name %></dt>
+<dt>E-mail: <%= @collaborator.email %></dt>
+<dt>CPF: <%= @collaborator.cpf %></dt>
+<hr>
+<h4>Dados da empresa</h4>
+<% if @company.name.blank? %>
+  <h4>Favor clicar no dominio da empresa para inserir os dados</h4>
+<% end %>
 <% if current_collaborator.admin? %>  
-  <dt> <%= link_to @company.domain, edit_company_path(id: @company.id) %></dt>
+  <dt> Domínio: <%= link_to @company.domain, edit_company_path(id: @company.id) %></dt>
 <% else %>
   <dt> <%= @company.domain %></dt><br>
 <% end %>

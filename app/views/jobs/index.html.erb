@@ -1,5 +1,10 @@
 <br>
-<%= link_to 'Voltar', companies_path %>
+
+<% if current_collaborator.present? %>
+  <%= link_to 'Voltar', collaborators_path %>
+<% else %>
+  <%= link_to 'Voltar', companies_path %>
+<% end %>
 
 <h3> Vagas de emprego cadastradas</h3>
 

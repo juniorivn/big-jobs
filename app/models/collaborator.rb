@@ -3,6 +3,9 @@ class Collaborator < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :name, :cpf, presence: true 
+
   has_many :jobs
   enum role: { user: 0, admin: 5}
   before_save :admin_company

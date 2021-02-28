@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   
   before_action :authenticate_collaborator!, only: [:new, :create, :edit]
-
+  before_action :authenticate_candidate!, only: [:application]
 
   def index
     if collaborator_signed_in?
@@ -15,7 +15,6 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
-   
   end
 
   def create
@@ -31,6 +30,8 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @candidate_job = CandidateJob.find_by(candidate_id: current_candidate&.id, job_id: @job.id)
+    @candidacies = @job.candidacies
   end
 
   def edit
@@ -48,10 +49,9 @@ class JobsController < ApplicationController
   end
 
   def application
-    job = Job.find(params[:id])
-    job.application_job(current_candidate.id, job.id)
-    redirect_to job
-
+    @job = Job.find(params[:id])
+    @job.application_job(current_candidate.id, @job.id)
+    redirect_to @job
   end
 
   private

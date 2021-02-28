@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_015613) do
+ActiveRecord::Schema.define(version: 2021_02_28_002037) do
 
   create_table "candidate_jobs", force: :cascade do |t|
     t.integer "status_candidate", default: 0, null: false
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_015613) do
     t.integer "job_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status_proposal", default: 0, null: false
+    t.text "feedback"
     t.index ["candidate_id"], name: "index_candidate_jobs_on_candidate_id"
     t.index ["job_id"], name: "index_candidate_jobs_on_job_id"
   end

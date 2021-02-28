@@ -13,9 +13,16 @@
 </dl>
 <% if current_collaborator %> 
   <%= link_to 'Editar vaga de emprego', edit_job_path %>
-<% end %>
-<% if current_candidate %>
-  <% if search_candidate_job?(current_candidate.id, @job.id) %>
+  <br><hr>
+  <h4>Candidaturas </h4>
+  <% @candidacies.each do |candidacy| %>
+    <%= link_to candidacy.candidate.email, candidate_path(id: candidacy.candidate.id, job_id: @job.id)%>
+    <br>
+  <% end %>
+<% else %>
+  <% if @candidate_job.blank? %>
     <%= link_to 'Candidatar-se', application_job_path, method: :post %>
+  <% else %>
+    <dt>Status de sua candidatura: <%= t(@candidate_job.status_candidate) %></dt>
   <% end %>
 <% end %>

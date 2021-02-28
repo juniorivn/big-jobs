@@ -1,12 +1,9 @@
 class Candidate < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  validates :name, :cpf, :cell_phone, :short_biography, :academic_training, presence: true 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  # def validator_cpf
-  #   cpf = CPF.new(self.cpf)
-  #   cpf.valid?
-  # end|
+  
 
 end

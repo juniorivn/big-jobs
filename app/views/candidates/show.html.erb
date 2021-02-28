@@ -1,0 +1,12 @@
+<h2>Dados do candidato</h2>
+<h3> <%= @candidate.name %></h3>
+<dl>
+  <dt> Email: <%= @candidate.email %></dt>
+  <dt> Calular: <%= @candidate.cell_phone %></dt>
+  <dt> Biografia resumida: <%= @candidate.short_biography %></dt>
+  <dt> Formação academica: <%= @candidate.academic_training %></dt>
+</dl>
+
+<%= @candidate_job.status_candidate %>
+<%= @candidate_job.feedback %>
+

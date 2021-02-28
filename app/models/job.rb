@@ -6,4 +6,7 @@ class Job < ApplicationRecord
     CandidateJob.create(status_candidate: 0, candidate_id: candidate_id, job_id: job_id)
   end
 
+  def candidacies
+    CandidateJob.where(job_id: self.id)
+  end
 end
