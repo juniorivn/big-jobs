@@ -13,6 +13,7 @@
 <% end %>
 
 <% @jobs.each do |job| %>
+  
   <div>
     <dl>
       <dt>Título da vaga: <%= link_to job.title, job_path(id: job.id) %></dt>
@@ -23,6 +24,7 @@
       <hr>
     </dl>
   </div>
+
 <% end %>
 
 <% if current_collaborator %>

@@ -1,0 +1,17 @@
+<br>
+<%= link_to "Voltar" %>
+
+<h2>Incluir feedback</h2>
+
+<%= form_with(model: @candidate_job) do |f| %>
+
+  <div class="field">
+    <%= f.label :feedback %><br />
+    <%= f.text_area :feedback %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Atualizar" %>
+  </div>
+<% end %>
+

@@ -9,4 +9,5 @@ class Job < ApplicationRecord
   def candidacies
     CandidateJob.where(job_id: self.id)
   end
+
 end

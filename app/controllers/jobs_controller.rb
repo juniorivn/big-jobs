@@ -54,6 +54,21 @@ class JobsController < ApplicationController
     redirect_to @job
   end
 
+  def accept
+    @candidate_job = CandidateJob.find_by(id: params[:id])
+    @candidate_job.accepted!
+ 
+    redirect_to edit_candidate_job_path(@candidate_job)
+  end
+
+  def decline
+    @candidate_job = CandidateJob.find_by(id: params[:id])
+    @candidate_job.declined!
+    total = @candidate_job.job.total
+    @candidate_job.job.update(total: total+1)
+    redirect_to edit_candidate_job_path(@candidate_job)
+  end
+
   private
 
   def job_params

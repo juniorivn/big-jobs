@@ -4,6 +4,5 @@ class Candidate < ApplicationRecord
   validates :name, :cpf, :cell_phone, :short_biography, :academic_training, presence: true 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
 
 end

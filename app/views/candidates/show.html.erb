@@ -1,3 +1,6 @@
+<br>
+<%= link_to 'Voltar', job_path %>
+
 <h2>Dados do candidato</h2>
 <h3> <%= @candidate.name %></h3>
 <dl>
@@ -6,7 +9,14 @@
   <dt> Biografia resumida: <%= @candidate.short_biography %></dt>
   <dt> Formação academica: <%= @candidate.academic_training %></dt>
 </dl>
-
-<%= @candidate_job.status_candidate %>
+<hr>
+<%= @candidate_job.status_candidate %> <br><br>
 <%= @candidate_job.feedback %>
+<% if @candidate_job.pending? %> 
+  <%= button_to 'Aprovar candidato', approve_candidate_path(id: @candidate_job.id), method: :post %> <br><br>
+  <%= button_to 'Recusar candidato', disapprove_candidate_path(id: @candidate_job.id), method: :post %> <br><br>
+<% end %>
+
+
+
 

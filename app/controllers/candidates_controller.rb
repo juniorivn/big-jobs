@@ -25,6 +25,22 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def approve
+    @candidate_job = CandidateJob.find_by(id: params[:id])
+    @candidate_job.approved!
+    total = @candidate_job.job.total
+    @candidate_job.job.update(total: total-1)
+    redirect_to edit_candidate_job_path(@candidate_job)
+  end
+
+  def disapprove
+    @candidate_job = CandidateJob.find_by(id: params[:id])
+    @candidate_job.disapproved!
+    redirect_to edit_candidate_job_path(@candidate_job)
+  end
+
+
+
   private
 
   def candidate_params

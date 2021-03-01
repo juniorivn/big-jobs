@@ -2,7 +2,7 @@
 <dl>Um jeito diferente de procurar seu novo emprego </dl>
 <% unless current_collaborator.present? %>
   <%= link_to 'Empresas Cadastradas',  companies_path %> <br><br>
-  <%= link_to 'Visualizar vagas de empregos', jobs_path %> <br><br>
+  <%= link_to 'Visualizar vagas de emprego', jobs_path %> <br><br>
   <%= link_to 'Acesso candidato', candidates_path %><br><br>
 <% end %>
 <% unless current_candidate.present? %>

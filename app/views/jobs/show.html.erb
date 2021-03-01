@@ -9,7 +9,9 @@
   <dt> Nível: <%= @job.level %></dt>
   <dt> Requisitos: <%= @job.requirements %></dt>
   <dt> Data limite: <%= l(@job.deadline) %></dt>
-  <dt> Total de posições: <%= @job.total %></dt>
+  <% if current_collaborator.present? %>
+    <dt> Total de posições: <%= @job.total %></dt>
+  <% end %>
 </dl>
 <% if current_collaborator %> 
   <%= link_to 'Editar vaga de emprego', edit_job_path %>
@@ -23,6 +25,14 @@
   <% if @candidate_job.blank? %>
     <%= link_to 'Candidatar-se', application_job_path, method: :post %>
   <% else %>
-    <dt>Status de sua candidatura: <%= t(@candidate_job.status_candidate) %></dt>
+    <dt>Status de sua candidatura: <%= @candidate_job.status_candidate %></dt>
+    <% if @candidate_job.approved? %>
+      <% if @candidate_job.pendant? %>
+        <br><%= button_to 'Aceitar', accept_job_path(id: @candidate_job.id), method: :post %>
+        <br> <%= button_to 'Recusar', decline_job_path(id: @candidate_job.id), method: :post %> 
+      <% else %>
+        <br> <%= @candidate_job.status_proposal %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
