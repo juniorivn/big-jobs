@@ -1,0 +1,19 @@
+<br>
+<%= link_to 'Voltar', candidates_path %> <br>
+<h3>Minhas vagas</h3>
+
+<% @candidate_job.each do |c| %>
+  
+  <div>
+    <dl>
+      <dt>Título da vaga: <%= link_to c.job.title, job_path(id: c.job.id) %></dt>
+      <dt>Descrição: <%= c.job.description %></dt>
+      <dt>Faixa salarial: <%= number_to_currency c.job.salary %></dt>
+      <dt>Empresa: <%= c.job.company.name %></dt>
+      <dt>Status de sua candidatura: <%= c.status_candidate %> </dt>
+      <br>
+      <hr>
+    </dl>
+  </div>
+
+  <% end %>

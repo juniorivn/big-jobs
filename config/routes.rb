@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :candidates, only: %i[index show edit update] do
     post 'approve', on: :member
     post 'disapprove', on: :member
+    get 'my_jobs', on: :member
 
   end  
   resources :candidate_jobs, only: %i[edit update]

@@ -39,6 +39,10 @@ class CandidatesController < ApplicationController
     redirect_to edit_candidate_job_path(@candidate_job)
   end
 
+  def my_jobs
+    @candidate_job = CandidateJob.where(candidate_id: current_candidate)
+  end
+
 
 
   private

@@ -1,9 +1,12 @@
+<br>
+<%= link_to 'Voltar', root_path %>
+
 <h3>Bem vindo ao Big Jobs</h3>
 
 <h4>Dados da empresa</h4>
 
 <% @companies.each do |company| %>
   <dt> <%= company.name %></dt>
-  <dt> <%= company.domain %></dt>
+  <dt> <%= company.domain %></dt> <br>
   <%=  link_to 'Visualizar vagas da empresa', jobs_path(company_id: company.id) %> <br><hr>
 <% end %>

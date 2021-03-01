@@ -1,7 +1,9 @@
 pt-BR:
     activerecord:
       models:
-        candidate_job: Candidatura
+        candidate_jobs:
+          one: Candidatura
+          other: Candidaturas
         company:
           one: Empresa
           other: Empresas
@@ -15,11 +17,15 @@ pt-BR:
           one: Candidato
           other: Candidatos
       attributes:
-        candidate_job:
+        candidate_job:  
           status_candidate:
             pending: "Candidatura em analise"
             disapproved: "Declinado"
             approved: "Aprovado"
+          status_proposal:
+            pendant: "Proposta em analise"
+            declined: "Recusada"
+            accepted: "Aceita"
         company:
           name: "Nome da empresa"
           domain: "Domínio"

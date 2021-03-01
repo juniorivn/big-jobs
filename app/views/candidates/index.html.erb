@@ -4,7 +4,7 @@
 <h2>Dados do candidato</h2>
 <h3>Nome: <%= @candidate.name %></h3>
 <dl>
-  <dt> Email: <%= link_to @candidate.email%></dt>
+  <dt> Email: <%= @candidate.email%></dt>
   <dt> Calular: <%= @candidate.cell_phone %></dt>
   <dt> CPF: <%= @candidate.cpf %></dt>
   <dt> Biografia resumida: <%= @candidate.short_biography %></dt>
@@ -13,3 +13,5 @@
 
   
   <%= link_to 'Editar perfil', edit_candidate_path(id: @candidate.id) %>
+  <br><br>
+  <%= link_to 'Minhas vagas', my_jobs_candidate_path(id: @candidate.id) %>
