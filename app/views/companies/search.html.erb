@@ -1,15 +1,11 @@
 <br>
-<%= link_to 'Voltar', root_path %>
+<%= link_to 'Voltar', companies_path %>
 
-<h3>Bem vindo ao Big Jobs</h3>
+<h4>Resultados da busca</h4>
 
-<%= form_with url: search_company_path, method: :get do %>
-  <%= label_tag :query, 'Buscar' %>
-  <%= text_field_tag :query %>
-  <%= submit_tag 'Pesquisar' %>
+<% if @companies.empty? %>
+  <div class="warning">Nenhuma empresa encontrada</div>
 <% end %>
-
-<h4>Dados da empresa</h4>
 
 <% @companies.each do |company| %>
   <dt> Nome da Empresa: <%= company.name %></dt>

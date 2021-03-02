@@ -10,6 +10,10 @@ class CompaniesController < ApplicationController
     @company =  Company.find(params[:id])
   end
 
+  def search 
+    @companies = Company.where(' name  like ? ', "%#{params[:query]}%")
+  end
+
   def edit
     @company = Company.find(params[:id])
   end

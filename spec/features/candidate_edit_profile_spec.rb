@@ -13,7 +13,7 @@ feature 'Admin updates jobs' do
 
   end
 
-  scenario 'update a promotion' do
+  scenario 'update a candidate' do
     candidate = Candidate.create!(email: 'ivan@email.com', password: '123456', cpf: '26701421687',
                                   name: 'Ivan de Oliveira Junior', cell_phone: '98199837',
                                   short_biography: 'Histórico Profisional', academic_training: 'Formado em SI')

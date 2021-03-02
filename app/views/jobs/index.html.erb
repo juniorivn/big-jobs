@@ -8,6 +8,12 @@
 
 <h3> Vagas de emprego cadastradas</h3>
 
+<%= form_with url: search_job_path, method: :get do %>
+  <%= label_tag :query, 'Buscar' %>
+  <%= text_field_tag :query%>
+  <%= submit_tag 'Pesquisar' %>
+<% end %>
+
 <% if @jobs.empty? %>
   <div class="warning">Nenhuma vaga de emprego cadastrada</div>
 <% end %>
@@ -18,8 +24,10 @@
     <dl>
       <dt>Título da vaga: <%= link_to job.title, job_path(id: job.id) %></dt>
       <dt>Descrição: <%= job.description %></dt>
+      <dt>Nível: <%= job.level %></dt>
+      <dt>Requerimentos: <%= job.requirements %></dt>
       <dt>Faixa salarial: <%= number_to_currency job.salary %></dt>
-      <dt> Empresa: <%= job.company.name %></dt>
+      <dt>Empresa: <%= job.company.name %></dt>
       <br>
       <hr>
     </dl>

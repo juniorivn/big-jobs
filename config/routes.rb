@@ -11,9 +11,14 @@ Rails.application.routes.draw do
     post 'disapprove', on: :member
     get 'my_jobs', on: :member
 
-  end  
+  end
+  
   resources :candidate_jobs, only: %i[edit update]
+
+  get 'search_company', to: "companies#search"
   resources :companies, only: %i[index show new create edit update]
+
+  get 'search_job', to: "jobs#search"
   resources :jobs, only: %i[index show new create edit update] do
     post 'application', on: :member
     post 'decline', on: :member

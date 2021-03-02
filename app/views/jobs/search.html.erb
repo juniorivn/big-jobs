@@ -1,0 +1,25 @@
+<br>
+<%= link_to 'Voltar', jobs_path %>
+
+<h4>Resultados da busca</h4>
+
+<% if @jobs.empty? %>
+  <div class="warning">Nenhuma vaga de emprego encontrada</div>
+<% end %>
+
+<% @jobs.each do |job| %>
+  
+  <div>
+    <dl>
+      <dt>Título da vaga: <%= link_to job.title, job_path(id: job.id) %></dt>
+      <dt>Descrição: <%= job.description %></dt>
+      <dt>Nível: <%= job.level %></dt>
+      <dt>Requerimentos: <%= job.requirements %></dt>
+      <dt>Faixa salarial: <%= number_to_currency job.salary %></dt>
+      <dt>Empresa: <%= job.company.name %></dt>
+      <br>
+      <hr>
+    </dl>
+  </div>
+
+<% end %>

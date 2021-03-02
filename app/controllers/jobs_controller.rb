@@ -13,6 +13,10 @@ class JobsController < ApplicationController
     end
   end
 
+  def search 
+    @jobs = Job.where(' title like ? ', "%#{params[:query]}%")
+  end
+
   def new
     @job = Job.new
   end
