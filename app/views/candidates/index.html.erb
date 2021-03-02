@@ -12,6 +12,7 @@
 </dl>
 
   
-  <%= link_to 'Editar perfil', edit_candidate_path(id: @candidate.id) %>
-  <br><br>
-  <%= link_to 'Minhas vagas', my_jobs_candidate_path(id: @candidate.id) %>
+  <%= link_to 'Editar perfil', edit_candidate_path(id: @candidate.id) %> <br><br>
+  <%= link_to 'Minhas vagas', my_jobs_candidate_path(id: @candidate.id) %> <br><br>
+  <%= link_to 'Empresas Cadastradas',  companies_path %> <br><br>
+  <%= link_to 'Visualizar vagas de emprego', jobs_path %> <br><br>
