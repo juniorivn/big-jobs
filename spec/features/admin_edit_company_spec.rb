@@ -25,7 +25,7 @@ feature 'Admin edit company' do
     click_on company.domain
     
     fill_in 'Nome da empresa', with: 'Sebastiana Informática Ltda'
-    
+    attach_file 'Logotipo', Rails.root.join('spec', 'support', 'jobs.jpg')
     fill_in 'CNPJ', with: '87966983000101'
     fill_in 'Endereço', with: 'Alameda dos Pintassilgos, 818'
     fill_in 'Bairro', with: 'Jardim Estrela Dalva'
@@ -44,6 +44,7 @@ feature 'Admin edit company' do
     expect(page).to have_content ('São Paulo')
     expect(page).to have_content ('SP')
     expect(page).to have_content ('02364740')
+    expect(page).to have_css('img[src*="jobs.jpg"]')
     
   end
 end

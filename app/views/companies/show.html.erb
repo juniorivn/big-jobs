@@ -3,6 +3,10 @@
 
 <h2>Dados da empresa</h2>
 <h3> Domínio: <%= @company.domain %></h3><br>
+<% if @company.logo.present? %>
+<%= image_tag @company.logo%>
+<% end %>
+
 <dl>
   <dt> Nome da empresa: <%= @company.name %></dt>
   <dt> CNPJ: <%= @company.cnpj %></dt>

@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   
   before_action :authenticate_collaborator!, only: [:edit, :show]
+  
 
   def index
     @companies = Company.all
@@ -33,7 +34,7 @@ class CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:name, :logo, :cnpj, :address,
                                     :district, :city, :state, :zip_code,
-                                    :facebook, :instagram, :photo)
+                                    :facebook, :instagram, :logo)
 
   end
 
