@@ -18,7 +18,7 @@ Aceitando/rejeitando proposta de emprego: clique em 'Acesso candidato' > efetue 
 
 -------
 
-No projeto falta a condição para não mostrar vagas expiradas e vagas sem posições, não consegui no rspec rodar o teste de upload de imagem, mas havia conseguido incluir a imagem pela aplicação(retirei a upload de imagem para passar os testes de search).
+Criada a condição para não mostrar vagas expiradas e vagas sem posições, mas ainda não foram criados testes.
 
 As GEMs utilizadas foram
 
