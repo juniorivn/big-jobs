@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     post 'application', on: :member
     post 'decline', on: :member
     post 'accept', on: :member
+    post 'disable', on: :member
   end
 
 end

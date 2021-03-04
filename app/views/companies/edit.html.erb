@@ -1,6 +1,5 @@
-<br>
-<%= link_to 'Voltar', collaborators_path %>
 <h4>Editar os dados da empresa</h4>
+<hr>
 <% if @company.errors.any? %>
   <div class="alert">
     <p>Não foi possível atualizar</p>
@@ -15,8 +14,6 @@
 
 <% if current_collaborator.admin? %>
   <%= form_with(model: @company) do |f| %>
-
-
     <div>
       <%= f.label :name %> 
       <%= f.text_field :name %>

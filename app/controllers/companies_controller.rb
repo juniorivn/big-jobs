@@ -23,6 +23,7 @@ class CompaniesController < ApplicationController
     @company =  Company.find(params[:id])
     if @company.update(company_params)
       @company.include_facebook
+      @company.include_instagram
       @company.save
       redirect_to @company
     else

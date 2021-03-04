@@ -16,13 +16,16 @@ Aprovando/recusando um candidato: clique em 'Acesso empresa' > efetue o login > 
 
 Aceitando/rejeitando proposta de emprego: clique em 'Acesso candidato' > efetue o login > clique em 'Minhas vagas' > sobre a vaga que está com os status de 'approved' > em aceitar ou recusar > escreve feedback
 
+Desabilitando vaga de emprego:  clique em 'Acesso candidato' > efetue o login > sobre a vaga de emprego > em 'Desativar vaga de empego'
+
 -------
 
-Criada a condição para não mostrar vagas expiradas e vagas sem posições, mas ainda não foram criados testes.
+Inclui a tradução do candidate_job e do status de job no YML, mas o arquivo não está traduzindo
+
 
 As GEMs utilizadas foram
 
-simplecov e as gems de teste apresentadas no treinamento.
+simplecov, bootstrap e as gems de teste apresentadas no treinamento.
 
 
 

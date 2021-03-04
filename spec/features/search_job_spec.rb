@@ -12,7 +12,7 @@ feature 'Search job' do
   
 
     visit root_path
-    click_on 'Visualizar vagas de emprego'
+    click_on 'Vagas de emprego'
     fill_in 'Buscar', with: 'Analista Ruby'
     click_on 'Pesquisar'    
     expect(current_path).to eq search_job_path
@@ -33,7 +33,7 @@ feature 'Search job' do
                       deadline: '22/12/2033', total: '5', company_id: collaborator.company_id)
 
     visit root_path
-    click_on 'Visualizar vagas de emprego'
+    click_on 'Vagas de emprego'
     fill_in 'Buscar', with: 'Analista Java'
     click_on 'Pesquisar'    
     expect(current_path).to eq search_job_path

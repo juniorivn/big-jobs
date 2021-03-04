@@ -22,9 +22,7 @@ feature 'view application' do
 
       click_on 'Entrar'
     end
-   
-    click_on 'Voltar'
-    click_on 'Visualizar vagas de emprego'
+    click_on 'Vagas de emprego'
     click_on 'Analista Ruby'
     click_on 'Candidatar-se'
     click_on 'Sair'
@@ -37,7 +35,7 @@ feature 'view application' do
       click_on 'Entrar'
     end
 
-    click_on 'Vagas de emprego cadastradas'
+    click_on 'Vagas de emprego'
     click_on job.title
     click_on candidate.email
     click_on 'Aprovar candidato'
@@ -54,9 +52,8 @@ feature 'view application' do
 
       click_on 'Entrar'
     end
-   
-    click_on 'Voltar'
-    click_on 'Visualizar vagas de emprego'
+
+    click_on 'Vagas de emprego'
     click_on 'Analista Ruby'
     click_on 'Aceitar'
     fill_in 'Feedback', with: 'Aceito a vaga para inicio em 01/04/2021'
@@ -85,8 +82,7 @@ feature 'view application' do
       click_on 'Entrar'
     end
    
-    click_on 'Voltar'
-    click_on 'Visualizar vagas de emprego'
+    click_on 'Vagas de emprego'
     click_on 'Analista Ruby'
     click_on 'Candidatar-se'
     click_on 'Sair'
@@ -117,8 +113,7 @@ feature 'view application' do
       click_on 'Entrar'
     end
    
-    click_on 'Voltar'
-    click_on 'Visualizar vagas de emprego'
+    click_on 'Vagas de emprego'
     click_on 'Analista Ruby'
     click_on 'Recusar'
     fill_in 'Feedback', with: 'Terei que recusar, por conta de problemas famaliares'

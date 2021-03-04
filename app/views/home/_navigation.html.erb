@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><%= t('big_jobs') %></a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+      <% unless current_collaborator.present? %>
+        <li><%= link_to 'Empresas Cadastradas',  companies_path %></li>
+        <li><%= link_to 'Vagas de emprego', jobs_path %></li>
+        <li><%= link_to 'Acesso candidato', candidates_path %> %></li>
+      <% end %>
+      <% unless current_candidate.present? %>
+        <li><%= link_to 'Acesso empresa', collaborators_path %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

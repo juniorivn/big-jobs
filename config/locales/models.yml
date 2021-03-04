@@ -44,6 +44,9 @@ pt-BR:
           requirements: "Requisitos"
           deadline: "Data limite"
           total: "Total de posições"
+          status:
+            enabled: "Habilitada"
+            disabled: "Desativada"
         collaborator:
           name: "Nome"
           cpf: "CPF"

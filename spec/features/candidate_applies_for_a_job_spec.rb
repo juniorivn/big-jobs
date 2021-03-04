@@ -21,9 +21,8 @@ feature 'apply for a job' do
 
       click_on 'Entrar'
     end
-   
-    click_on 'Voltar'
-    click_on 'Visualizar vagas de emprego'
+
+    click_on 'Vagas de emprego'
     click_on 'Analista Ruby'
     click_on 'Candidatar-se'
   
@@ -49,8 +48,7 @@ feature 'apply for a job' do
 
       click_on 'Entrar'
     end
-   
-    click_on 'Voltar'
+
     click_on 'Empresas Cadastradas'
     click_on 'Visualizar vagas da empresa'
     click_on 'Analista Ruby'

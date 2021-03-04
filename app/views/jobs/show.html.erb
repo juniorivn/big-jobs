@@ -11,9 +11,14 @@
   <dt> Data limite: <%= l(@job.deadline) %></dt>
   <% if current_collaborator.present? %>
     <dt> Total de posições: <%= @job.total %></dt>
+    <dt> Status: <%= @job.status %></dt>
   <% end %>
+  
 </dl>
-<% if current_collaborator %> 
+<% if current_collaborator %>
+  <% unless @job.disabled? %>
+    <%= link_to 'Desativar vaga de empego', disable_job_path, method: :post %> <br>
+  <% end %>
   <%= link_to 'Editar vaga de emprego', edit_job_path %>
   <br><hr>
   <h4>Candidaturas </h4>

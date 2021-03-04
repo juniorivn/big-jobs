@@ -32,6 +32,8 @@ feature 'Admin edit company' do
     fill_in 'Cidade', with: 'São Paulo'
     fill_in 'Estado', with: 'SP'
     fill_in 'CEP', with: '02364740'
+    fill_in 'Facebook', with: 'ironmaiden'
+    fill_in 'Instagram', with: 'osbaroesdapisadinhaoficial'
     
     click_on 'Atualizar Empresa'
     
@@ -44,7 +46,37 @@ feature 'Admin edit company' do
     expect(page).to have_content ('São Paulo')
     expect(page).to have_content ('SP')
     expect(page).to have_content ('02364740')
+    expect(page).to have_content ('https://www.facebook.com/ironmaiden')
+    expect(page).to have_content ('https://www.instagram.com/osbaroesdapisadinhaoficial')
     expect(page).to have_css('img[src*="jobs.jpg"]')
     
+  end
+
+  scenario 'update attributes cannot be blank' do
+    collaborator = Collaborator.create!(email: 'ivan@sebastianainformaticaltda.com.br', password: '123456', 
+                                        cpf: '26701421687', name: 'Ivan de Oliveira Junior')
+                                        
+    company =  Company.find_by(id: collaborator.company_id)
+    login_as collaborator, scope: :collaborator
+    
+    visit root_path
+    click_on "Acesso empresa"
+    click_on company.domain
+    
+    fill_in 'Nome da empresa', with: ''
+    fill_in 'CNPJ', with: ''
+    fill_in 'Endereço', with: ''
+    fill_in 'Bairro', with: ''
+    fill_in 'Cidade', with: ''
+    fill_in 'Estado', with: ''
+    fill_in 'CEP', with: ''
+    fill_in 'Facebook', with: ''
+    fill_in 'Instagram', with: ''
+
+    click_on 'Atualizar Empresa'
+
+    expect(company.valid?).to eq false
+    expect(company.errors.count).to eq 9
+
   end
 end

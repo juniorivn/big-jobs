@@ -21,9 +21,8 @@ feature 'apply for a job' do
 
       click_on 'Entrar'
     end
-   
-    click_on 'Voltar'
-    click_on 'Visualizar vagas de emprego'
+
+    click_on 'Vagas de emprego'
     click_on 'Analista Ruby'
     click_on 'Candidatar-se'
     visit root_path

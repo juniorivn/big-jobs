@@ -73,6 +73,12 @@ class JobsController < ApplicationController
     redirect_to edit_candidate_job_path(@candidate_job)
   end
 
+  def disable
+    @job = Job.find_by(id: params[:id])
+    @job.disabled!
+    redirect_to job_path(@job)
+  end
+
   private
 
   def job_params

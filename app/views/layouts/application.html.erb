@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BigJobs</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<head>
+  <title>Big Jobs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-  
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <nav>
-      <% if collaborator_signed_in? %>
-        <%= current_collaborator.email %>
-        <%= link_to 'Sair', destroy_collaborator_session_path, method: :delete %>
-      <% end %>
-    
-      <% if candidate_signed_in? %>
-        <%= current_candidate.email %>
-        <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
-      <% end %>
-    </nav>
-
-    <%= yield %>
-  </body>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class='container'>
+<br>
+  <% if collaborator_signed_in? %>
+    <%= current_collaborator.email %>
+    <%= link_to 'Sair', destroy_collaborator_session_path, method: :delete %>
+  <% end %>  
+  <% if candidate_signed_in? %>
+    <%= current_candidate.email %>
+    <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
+  <% end %>
+  <br>
+  <%= notice %> <br>
+  <%= alert %>
+  <br>
+</div>
+<%= render 'home/navigation.html.erb' %>
+<div class='container'>
+  <%= yield %>
+</div>
+</body>
 </html>

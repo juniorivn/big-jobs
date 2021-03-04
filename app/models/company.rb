@@ -23,8 +23,14 @@ class Company < ApplicationRecord
       url = self.facebook.split("facebook.com/")
       self.facebook = url_pattern.concat(url.last)
     end
-  
+  end
 
+  def include_instagram
+    if self.instagram.present?
+      url_pattern = "https://www.instagram.com/"
+      url = self.instagram.split("instagram.com/")
+      self.instagram = url_pattern.concat(url.last)
+    end
   end
 
 end

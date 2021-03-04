@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin updates jobs' do
+feature 'Collaborator updates jobs' do
   scenario 'access page edit job' do
     candidate = Candidate.create!(email: 'ivan@email.com', password: '123456', cpf: '26701421687',
                                   name: 'Ivan de Oliveira Junior', cell_phone: '98199837',
