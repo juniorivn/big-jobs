@@ -21,8 +21,9 @@ class CompaniesController < ApplicationController
 
   def update
     @company =  Company.find(params[:id])
-
     if @company.update(company_params)
+      @company.include_facebook
+      @company.save
       redirect_to @company
     else
       render :edit

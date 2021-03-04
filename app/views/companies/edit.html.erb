@@ -1,52 +1,66 @@
 <br>
 <%= link_to 'Voltar', collaborators_path %>
 <h4>Editar os dados da empresa</h4>
-
-<%= form_with(model: @company) do |f| %>
-
-  
-  <div>
-    <%= f.label :name %> 
-    <%= f.text_field :name %>
-  </div><br>
-  <div>
-    <%= f.label :logo %> <br>
-    <%= f.file_field :logo %>
-  </div><br>
-    <div>
-    <%= f.label :cnpj %> <br>
-    <%= f.text_field :cnpj %>
-  </div><br>
-  <div>
-    <%= f.label :address %> <br>
-    <%= f.text_field :address %>
-  </div><br>
-  <div>
-    <%= f.label :district %> <br>
-    <%= f.text_field :district %>
-  </div><br>
-  <div>
-    <%= f.label :city %> <br>
-    <%= f.text_field :city %>
-  </div> <br>
-   <div>
-    <%= f.label :state %> <br>
-    <%= f.text_field :state %>
-  </div> <br>
-   <div>
-    <%= f.label :zip_code %> <br>
-    <%= f.text_field :zip_code %>
-  </div> <br>
-   <div>
-    <%= f.label :facebook %> <br>
-    <%= f.text_field :facebook %>
-  </div> <br>
-     <div>
-    <%= f.label :instagram %> <br>
-    <%= f.text_field :instagram %>
-  </div> <br>
-  <div>
-    <%= f.submit %>
+<% if @company.errors.any? %>
+  <div class="alert">
+    <p>Não foi possível atualizar</p>
+    <p>Confira os erros abaixo</p>
+    <ul>
+      <% @company.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+      <% end %>
+    </ul>
   </div>
+<% end %>
 
+<% if current_collaborator.admin? %>
+  <%= form_with(model: @company) do |f| %>
+
+
+    <div>
+      <%= f.label :name %> 
+      <%= f.text_field :name %>
+    </div><br>
+    <div>
+      <%= f.label :logo %> <br>
+      <%= f.file_field :logo %>
+    </div><br>
+      <div>
+      <%= f.label :cnpj %> <br>
+      <%= f.text_field :cnpj %>
+    </div><br>
+    <div>
+      <%= f.label :address %> <br>
+      <%= f.text_field :address %>
+    </div><br>
+    <div>
+      <%= f.label :district %> <br>
+      <%= f.text_field :district %>
+    </div><br>
+    <div>
+      <%= f.label :city %> <br>
+      <%= f.text_field :city %>
+    </div> <br>
+     <div>
+      <%= f.label :state %> <br>
+      <%= f.text_field :state %>
+    </div> <br>
+     <div>
+      <%= f.label :zip_code %> <br>
+      <%= f.text_field :zip_code %>
+    </div> <br>
+     <div>
+      <%= f.label :facebook %> <br>
+      <%= f.text_field :facebook %>
+    </div> <br>
+       <div>
+      <%= f.label :instagram %> <br>
+      <%= f.text_field :instagram %>
+    </div> <br>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% else %>
+  <h4>Acesso somente para o Aministrador da conta</h4>
 <% end %>

@@ -15,7 +15,7 @@
   <dt> Cidade: <%= @company.city %></dt>
   <dt> Estado: <%= @company.state %></dt>
   <dt> CEP: <%= @company.zip_code %></dt>
-  <dt> Facebook: <%= @company.facebook %></dt>
+  <dt> Facebook: <%= link_to @company.facebook, @company.facebook %></dt>
   <dt> Instagram: <%= @company.instagram %></dt>
 
 </dl> 
