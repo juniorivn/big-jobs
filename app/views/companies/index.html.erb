@@ -1,4 +1,5 @@
 <h3>Empresas Cadastradas</h3>
+<b>Clique sobre o domínio da empresa para maios informações e vagas</b>
 <hr>
 <%= form_with url: search_company_path, method: :get do %>
   <%= label_tag :query, 'Buscar empresa' %>
@@ -7,10 +8,10 @@
 <% end %>
 <hr>
 <% @companies.each do |company| %>
+  <dt> Domínio: <%= link_to company.domain, jobs_path(company_id: company.id)%></dt>
   <dt> Nome da Empresa: <%= company.name %></dt>
-  <dt> Domínio: <%= company.domain %></dt>
   <dt> Endereço <%= company.address %></dt>
   <dt> Cidade: <%= company.city %></dt>
   <dt> Estado: <%= company.state %></dt> <br>
-  <%=  link_to 'Visualizar vagas da empresa', jobs_path(company_id: company.id) %> <br><hr>
+  <hr>
 <% end %>

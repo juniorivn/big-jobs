@@ -28,5 +28,10 @@ As GEMs utilizadas foram
 simplecov, bootstrap e as gems de teste apresentadas no treinamento.
 
 
+----------- 
+
+Validação personalidade do candidatura_job
+Cmnadidatura duplicada
+
 
 
