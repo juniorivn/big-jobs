@@ -3,6 +3,18 @@
 
 <h2>Editar perfil</h2>
 
+<% if @candidate.errors.any? %>
+  <div class="alert">
+    <p>Não foi possível editar vaga de emprego</p>
+    <p>Confira os erros abaixo</p>
+    <ul>
+      <% @candidate.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with(model: @candidate) do |f| %>
 
   <div class="field">
