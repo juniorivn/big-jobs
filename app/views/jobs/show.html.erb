@@ -28,7 +28,11 @@
   <% end %>
 <% else %>
   <% if @candidate_job.blank? %>
+   <%  unless @job.disabled? %>
     <%= link_to 'Candidatar-se', application_job_path, method: :post %>
+  <% else %>
+    <dt>Essa vaga de emprego foi desativada pela empresa</dt>
+  <% end %>
   <% else %>
     <dt>Status de sua candidatura: <%= @candidate_job.status_candidate %></dt>
     <% if @candidate_job.approved? %>
