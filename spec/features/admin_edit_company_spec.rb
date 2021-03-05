@@ -9,7 +9,8 @@ feature 'Admin edit company' do
     
     visit root_path
     click_on "Acesso empresa"
-    click_on company.domain
+    
+    expect(page).to have_content company.domain
     
   end
 

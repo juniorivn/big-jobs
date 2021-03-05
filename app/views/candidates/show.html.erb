@@ -10,8 +10,10 @@
   <dt> Formação academica: <%= @candidate.academic_training %></dt>
 </dl>
 <hr>
-<%= @candidate_job.status_candidate %> <br><br>
-<%= @candidate_job.feedback %>
+<dt>Status da candidatura: <%= @candidate_job.status_candidate %></dt> <br><br>
+<% if @candidate_job.feedback.present? %>
+  <dt>Feedback: <%= @candidate_job.feedback %> </dt>
+<% end %>
 <% if @candidate_job.pending? %> 
   <%= button_to 'Aprovar candidato', approve_candidate_path(id: @candidate_job.id), method: :post %> <br><br>
   <%= button_to 'Recusar candidato', disapprove_candidate_path(id: @candidate_job.id), method: :post %> <br><br>

@@ -11,8 +11,8 @@ feature 'apply for a job' do
                       deadline: '22/12/2033', total: '5', company_id: collaborator.company_id)
 
     candidate = Candidate.create!(email: 'ivan@email.com', name:'Ivan de Oliveira Junior', cpf:'37355900803',
-    cell_phone:'987199837', short_biography: 'Formado em Sistemas de Informação',
-    academic_training: 'Superior Completo', password: '123456')
+                                  cell_phone:'987199837', short_biography: 'Formado em Sistemas de Informação',
+                                  academic_training: 'Superior Completo', password: '123456')
     login_as candidate, scope: :candidate
     
     visit root_path
@@ -67,8 +67,8 @@ feature 'apply for a job' do
                       deadline: '22/12/2033', total: '5', company_id: collaborator.company_id)
 
     candidate = Candidate.create!(email: 'ivan@email.com', name:'Ivan de Oliveira Junior', cpf:'37355900803',
-    cell_phone:'987199837', short_biography: 'Formado em Sistemas de Informação',
-    academic_training: 'Superior Completo', password: '123456')
+                                  cell_phone:'987199837', short_biography: 'Formado em Sistemas de Informação',
+                                  academic_training: 'Superior Completo', password: '123456')
     login_as candidate, scope: :candidate
     
     visit root_path

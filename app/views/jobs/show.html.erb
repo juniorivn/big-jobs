@@ -36,7 +36,7 @@
         <br><%= button_to 'Aceitar', accept_job_path(id: @candidate_job.id), method: :post %>
         <br> <%= button_to 'Recusar', decline_job_path(id: @candidate_job.id), method: :post %> 
       <% else %>
-        <br> <%= @candidate_job.status_proposal %>
+        <br><dt> Você <%= @candidate_job.status_proposal %> a vaga</dt>
       <% end %>
     <% end %>
   <% end %>

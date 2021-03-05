@@ -24,8 +24,8 @@ feature 'Candidate sign in' do
 
   scenario 'and logout' do
     candidate = Candidate.create!(email: 'ivan@email.com', name:'Ivan de Oliveira Junior', cpf:'37355900803',
-    cell_phone:'987199837', short_biography: 'Formado em Sistemas de Informação',
-    academic_training: 'Superior Completo', password: '123456')
+                                  cell_phone:'987199837', short_biography: 'Formado em Sistemas de Informação',
+                                  academic_training: 'Superior Completo', password: '123456')
 
     visit root_path
     click_on 'Acesso candidato'
